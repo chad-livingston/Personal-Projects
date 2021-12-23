@@ -16,6 +16,7 @@ public class MyHomeTools {
             while (homeMod) {
                 String input = in.nextLine().toLowerCase();
                 Mortgage mortgage = new Mortgage();
+                Savings savings = new Savings(1000, 200);
                 switch (input) {
                     case "homecost":
                         System.out.println("Cost of home?");
@@ -67,6 +68,9 @@ public class MyHomeTools {
                         break;
                     case "opt":
                         options();
+
+                    case "goals":
+                        System.out.println(savings.calcRateToGoal(5000));
                         break;
                     case "view":
                         System.out.println(mortgage);
