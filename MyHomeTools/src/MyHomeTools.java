@@ -6,14 +6,15 @@ public class MyHomeTools {
         //Continuous running
         Scanner in;
         in = new Scanner(System.in);
-        while (true){
+        while (true) {
             //displays the options
             System.out.println("##### HOME SCREEN #####");
             options();
             boolean homeMod = true;
-            String input = in.nextLine().toLowerCase();
+
 
             while (homeMod) {
+                String input = in.nextLine().toLowerCase();
                 Mortgage mortgage = new Mortgage();
                 switch (input) {
                     case "homecost":
@@ -25,29 +26,34 @@ public class MyHomeTools {
                         Double interestRateInput = Double.parseDouble(in.nextLine());
                         System.out.println("How long in years? 30 or 15");
                         Integer loanTermInput = Integer.valueOf(in.nextLine());
-
                         mortgage = new Mortgage(homeCostInput, downpaymentInput, interestRateInput, loanTermInput);
-
                         System.out.println(mortgage);
-
-
+                        break;
+                    case "monthlypayment":
+                        System.out.println("Est. Monthly Payment: " + mortgage.mortgageCalc());
+                        break;
+                    case "opt":
+                        options();
                         break;
                     case "view":
                         System.out.println(mortgage);
+                        break;
                     case "exit":
                         System.out.println("Exiting to home screen");
                         homeMod = false;
                         break;
-                  default:
+                    default:
+                        System.out.println("Invalid Input.");
+                        options();
                         break;
                 }
             }
         }
 
 
-
     }
-    public static void options(){
+
+    public static void options() {
         System.out.println("##### OPTIONS #####");
         System.out.println("homecost");
         System.out.println("opt");

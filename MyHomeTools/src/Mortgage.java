@@ -1,9 +1,9 @@
 public class Mortgage {
-    private double homeCost;
-    private double downPayment;
-    private double principal;
-    private double interestRate;
-    private Integer loanTermYears;
+    private Double homeCost;
+    private final Double downPayment;
+    private Double principal;
+    private Double interestRate;
+    private final Integer loanTermYears;
 
     public Mortgage(double homeCost, double downPayment, double interestRate, Integer loanTermYears) {
         this.homeCost = homeCost;
@@ -11,43 +11,52 @@ public class Mortgage {
         this.interestRate = interestRate;
         this.loanTermYears = loanTermYears;
     }
-    public Mortgage(){
-        this.homeCost = 400000;
-        this.downPayment = homeCost * .2;
-        this.interestRate = .03;
+
+    public Mortgage() {
+        this.homeCost = 400000.00;
+        this.downPayment = 80000.00;
+        this.interestRate = .06;
         this.loanTermYears = 30;
     }
+
     public double getHomeCost() {
         return homeCost;
     }
+
     public void setHomeCost(Double homeCost) {
         this.homeCost = homeCost;
     }
+
     public double getDownPayment() {
         return downPayment;
     }
-    public void setDownPayment(Double homeCost){
+
+    public void setDownPayment(Double homeCost) {
         this.homeCost = homeCost;
     }
-    public void principalCalc(){
+
+    public void principalCalc() {
         this.principal = homeCost - downPayment;
     }
-    public double getPrincipal(){
+
+    public double getPrincipal() {
         return this.principal;
     }
 
     public double getInterestRate() {
         return interestRate;
     }
-    public void setInterestRate(double interestRate){
+
+    public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
 
     public Integer getLoanTermYears() {
         return loanTermYears;
     }
-    public Integer convertLoanTermToMonths(){
-        return this.loanTermYears * 12;
+
+    public Integer convertLoanTermToMonths() {
+        return loanTermYears * 12;
     }
 
     public double mortgageCalc() {
@@ -55,10 +64,15 @@ public class Mortgage {
         //P =principal loan amount
         //i = monthly interest rate
         //n = number of months to repay the loan
+        double monthlyPayment;
 
-        return 0.00;
+        principalCalc();
+        monthlyPayment = (principal * (interestRate / 12) * (Math.pow(1 + (interestRate / 12), convertLoanTermToMonths())))
+                / (Math.pow(1 + (interestRate / 12), convertLoanTermToMonths())) - 1;
+        return monthlyPayment;
     }
-    public String toString(){
+
+    public String toString() {
         return "Home Cost: "
                 + this.homeCost
                 + "\n"
