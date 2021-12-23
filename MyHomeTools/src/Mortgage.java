@@ -11,6 +11,12 @@ public class Mortgage {
         this.interestRate = interestRate;
         this.loanTermYears = loanTermYears;
     }
+    public Mortgage(){
+        this.homeCost = 400000;
+        this.downPayment = homeCost * .2;
+        this.interestRate = .03;
+        this.loanTermYears = 30;
+    }
     public double getHomeCost() {
         return homeCost;
     }
