@@ -29,8 +29,41 @@ public class MyHomeTools {
                         mortgage = new Mortgage(homeCostInput, downpaymentInput, interestRateInput, loanTermInput);
                         System.out.println(mortgage);
                         break;
+                    case "mp":
                     case "monthlypayment":
                         System.out.println("Est. Monthly Payment: " + mortgage.mortgageCalc());
+                        double homeCost = mortgage.getHomeCost();
+                        for (int i = 0; i < 5; i++){
+
+                            switch (i){
+                                case 1:
+                                    mortgage.setHomeCost(homeCost - 100000);
+                                    System.out.println("Making a 100000 payment would make your monthly payment: " + mortgage.mortgageCalc());
+                                    break;
+                                case 2:
+                                    mortgage.setHomeCost(homeCost - 50000);
+                                    System.out.println("Making a 50000 payment would make your monthly payment: " + mortgage.mortgageCalc());
+
+                                    break;
+                                case 3:
+                                    mortgage.setHomeCost(homeCost - 25000);
+                                    System.out.println("Making a 25000 payment would make your monthly payment: " + mortgage.mortgageCalc());
+
+                                    break;
+                                case 4:
+                                    mortgage.setHomeCost(homeCost - 10000);
+                                    System.out.println("Making a 1000 payment would make your monthly payment: " + mortgage.mortgageCalc());
+
+                                    break;
+                                case 5:
+                                    mortgage.setHomeCost(homeCost -  1000);
+                                    System.out.println("Making a 1000 payment would make your monthly payment: " + mortgage.mortgageCalc());
+
+                                    break;
+                                default:
+                                        break;
+                            }
+                        }
                         break;
                     case "opt":
                         options();
