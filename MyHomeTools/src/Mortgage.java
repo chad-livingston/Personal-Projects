@@ -1,22 +1,22 @@
 public class Mortgage {
     private Double homeCost;
-    private final Double downPayment;
+    private Double downPayment;
     private Double principal;
     private Double interestRate;
-    private final Integer loanTermYears;
-
-    public Mortgage(double homeCost, double downPayment, double interestRate, Integer loanTermYears) {
-        this.homeCost = homeCost;
-        this.downPayment = downPayment;
-        this.interestRate = interestRate;
-        this.loanTermYears = loanTermYears;
-    }
+    private Integer loanTermYears;
 
     public Mortgage() {
         this.homeCost = 400000.00;
         this.downPayment = 80000.00;
         this.interestRate = .06;
         this.loanTermYears = 30;
+    }
+
+    public Mortgage(double homeCost, double downPayment, double interestRate, Integer loanTermYears) {
+        this.homeCost = homeCost;
+        this.downPayment = downPayment;
+        this.interestRate = interestRate;
+        this.loanTermYears = loanTermYears;
     }
 
     public double getHomeCost() {
