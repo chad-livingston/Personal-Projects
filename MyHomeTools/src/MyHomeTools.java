@@ -37,13 +37,13 @@ public class MyHomeTools {
                                     now = LocalDateTime.now();
                                     System.out.println("When is this reminder for? Format: YYYY MM DD The current Date Time is: " + now);
 
-                                    String dateInput = new String(now);
+                                    //String dateInput = new String(now);
 
-                                    reminders.addReminder(new Reminders(remindInput,dateInput));
+                                    //reminders.addReminder(new Reminders(remindInput,dateInput));
 
                                     break;
                                 case "view":
-                                    System.out.println(reminders.getReminderName() + ": " + dtf.format(LocalDateTime.parse(reminders.getReminderDate()));
+                                    System.out.println(reminders.getReminderName() + ": " + dtf.format(LocalDateTime.parse(reminders.getReminderDate())));
                                 default:
                                     break;
 
