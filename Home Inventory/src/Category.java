@@ -5,7 +5,7 @@ public class Category {
     private ArrayList<String> categories;
 
     public Category(){
-        this.categoryName = "Misc";
+        this.categoryName = "misc";
     }
 
     public Category(String categoryName){
@@ -31,6 +31,7 @@ public class Category {
         }
         return categoriesList;
     }
+
     public String toString(){
         return this.categoryName;
     }

@@ -1,25 +1,47 @@
-public class Item {
-    private final String name;
-    private final double price;
-    private final Category category;
-    private final int id;
-    private int idCounter;
+import java.util.ArrayList;
 
-    public Item(String name, Double price, int id) {
+public class Item {
+    private String name;
+    private double price;
+    private Category category;
+    private int id;
+    //private int idCounter;
+
+    public Item(String name, Double price,int id ) {
         this.name = name;
         this.price = price;
         this.category = new Category();
-        this.id = idCounter;
-        idCounter++;
+        this.id = id + 1;
     }
 
-    public Item(String name, Double price, int id, String category) {
+    public Item(String name, Double price, String category, int id) {
         this.name = name;
         this.price = price;
         this.category = new Category(category);
-        this.id = idCounter;
-        idCounter++;
+        this.id = id + 1;
 
+    }
+    public Item(){
+        this.name = "";
+        this.price = 0.00;
+        this.category = new Category();
+        this.id = id + 1;
+    }
+    public double sumCategory(ArrayList<Item> items, String category){
+        double sum = 0.00;
+        for (Item item : items){
+            if (item.getCategory().equals(this.category.getCategoryName())){
+                sum += item.getPrice();
+            }
+        }
+        return sum;
+    }
+    public double sumAll(ArrayList<Item>  items){
+        double sum = 0;
+        for (Item item : items){
+            sum += item.getPrice();
+        }
+        return sum;
     }
 
     public String getName() {
@@ -37,8 +59,11 @@ public class Item {
     public int getId() {
         return id;
     }
+    public void setId(int id){
+        this.id = id;
+    }
 
     public String toString() {
-        return this.id + ": " + this.name + ": " + this.price + ", " + this.category.getCategoryName();
+        return this.id + ": " + this.name + " : " + "$" + this.price + ", " + this.category.getCategoryName();
     }
 }

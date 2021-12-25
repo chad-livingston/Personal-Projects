@@ -1,13 +1,18 @@
 import java.util.ArrayList;
 
 public class Inventory {
-    private ArrayList<Item> items;
+    private ArrayList<Item> items = new ArrayList<>();
+    private int highestID;
 
     public Inventory(){
-        items = new ArrayList<>();
+        this.highestID = getHighestId();
+        //this.items = new ArrayList<>();
     }
     public void addItemToInventory(Item item){
         this.items.add(item);
+    }
+    public ArrayList<Item> getItemsFromInventory(){
+        return this.items;
     }
     public boolean itemListNotEmpty(){
         if (items.size() > 0){
@@ -16,27 +21,26 @@ public class Inventory {
         return false;
     }
     public int getHighestId(){
-        int highestInt = 0;
         if (items.size() == 0){
-            return highestInt;
+            return highestID = 0;
         }
-        
+
         for (Item item : items){
-            if (item.getId() > highestInt){
-                highestInt = item.getId();
+            if (item.getId() > highestID){
+                this.highestID = item.getId();
 
             }
         }
-
-        return highestInt;
+        //System.out.println(highestID);
+        return  highestID;
     }
 
     public String toString(){
         String out = "";
         for (Item item : items){
-            out += item;
+            out += item + "\n";
         }
-        return out + "\n";
+        return out;
     }
 
 
