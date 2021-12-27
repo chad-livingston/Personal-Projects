@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class main {
@@ -54,8 +55,14 @@ public class main {
                             case "view":
                                 if (inventory.itemListNotEmpty()) {
                                     System.out.println(inventory);
+                                    System.out.println("Enter a category to sum:");
+                                    String categoryInput = in.nextLine().toLowerCase();
+                                    if (categoryInput.equals("")){
+                                        categoryInput = "misc";
+                                    }
+
                                     System.out.println("Sum of All items: " + item.sumAll(inventory.getItemsFromInventory()));
-                                    System.out.println("Sum all misc Items: " + item.sumCategory(inventory.getItemsFromInventory(), "misc"));
+                                    System.out.println("Sum all "+ categoryInput.toLowerCase() +" Items: " + item.sumCategory(inventory.getItemsFromInventory(), categoryInput));
                                 }
 
 

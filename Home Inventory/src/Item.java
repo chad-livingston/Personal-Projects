@@ -30,7 +30,7 @@ public class Item {
     public double sumCategory(ArrayList<Item> items, String category){
         double sum = 0.00;
         for (Item item : items){
-            if (item.getCategory().equals(this.category.getCategoryName())){
+            if (item.getCategory().getCategoryName().equals(category)){
                 sum += item.getPrice();
             }
         }

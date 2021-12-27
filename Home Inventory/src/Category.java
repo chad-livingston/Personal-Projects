@@ -24,6 +24,9 @@ public class Category {
         }
 
     }
+    //public boolean equals(){
+      //  if (this.)
+    //}
     public String printCategories(ArrayList<String> categories){
         String categoriesList = "";
         for (String category : categories){
